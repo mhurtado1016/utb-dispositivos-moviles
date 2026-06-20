@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Tema base de la app.
+        Extiende Theme.MaterialComponents para compatibilidad con:
+        - Jetpack Compose (via AppCompatActivity)
+        - MapActivity (SupportMapFragment requiere AppCompat)
+        - MaterialButton en activity_map.xml
+    -->
+    <style name="Theme.GestorDeTareas" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+</resources>

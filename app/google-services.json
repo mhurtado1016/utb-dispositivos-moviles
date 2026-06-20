@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "974550861171",
+    "project_id": "especializacion-ing-sw",
+    "storage_bucket": "especializacion-ing-sw.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974550861171:android:b7d46de89a1ac3fd7bf106",
+        "android_client_info": {
+          "package_name": "com.example.gestordetareas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClm5SxT53rFLjuIQr3Z0dTwEDWfmKHBjM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
