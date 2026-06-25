@@ -91,10 +91,16 @@ class DBHelper(context: Context) :
     /**
      * Inserta una nueva tarea cifrando título y descripción antes de guardar.
      *
+     * Prevención de inyección SQL: se usa [ContentValues] en lugar de
+     * concatenación de strings. Android pasa los valores como parámetros
+     * enlazados (?), lo que impide cualquier inyección SQL independientemente
+     * del contenido ingresado por el usuario.
+     *
      * @param task Tarea a guardar (el campo [Task.id] es ignorado).
      * @return ID de la fila insertada, o -1 si hubo un error.
      */
     fun insertTask(task: Task): Long {
+        // ContentValues → parámetros enlazados internamente por SQLite (anti SQL injection)
         val values = ContentValues().apply {
             put(COL_TITLE,     crypto.encrypt(task.title))
             put(COL_DESC,      crypto.encrypt(task.description))
@@ -107,6 +113,9 @@ class DBHelper(context: Context) :
 
     /**
      * Recupera todas las tareas almacenadas, descifrando título y descripción.
+     *
+     * La consulta usa columnas definidas como constantes (no interpolación de
+     * input del usuario), eliminando el riesgo de inyección SQL en la lectura.
      *
      * @return Lista de tareas con campos sensibles en texto plano.
      */
